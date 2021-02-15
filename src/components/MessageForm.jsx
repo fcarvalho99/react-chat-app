@@ -4,14 +4,14 @@ import { SendOutlined, PictureOutlined } from "@ant-design/icons";
 
 const MessageForm = (props) => {
   const [value, setValue] = useState("");
-  const { chatID, creds } = props;
+  const { chatId, creds } = props;
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const text = value.trim();
 
-    if (text.length > 0) sendMessage(creds, chatID, { text });
+    if (text.length > 0) sendMessage(creds, chatId, { text });
 
     setValue("");
   };
@@ -19,11 +19,11 @@ const MessageForm = (props) => {
   const handleChange = (event) => {
     setValue(event.target.value);
 
-    isTyping(props, chatID);
+    isTyping(props, chatId);
   };
 
   const handleUpload = (event) => {
-    sendMessage(creds, chatID, { files: event.target.files, text: "" });
+    sendMessage(creds, chatId, { files: event.target.files, text: "" });
   };
 
   return (
